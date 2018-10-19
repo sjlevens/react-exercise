@@ -1,13 +1,29 @@
 
 
-#### This exercise is designed to...
+### This exercise is designed to...
 - Test your knowledge of `React` and `javascript`
 - Test some basic `css` and `html` concepts
-- Get an idea of how you write code
+- See how you write and organise your code
+
+### If you have any questions at any time please contact us at alex@eventhub.com.au
 
 ### We expect you to spend no more than three hours on this exercise.
 
 ## Your Task
+
+1. Clone this repository and create a new version in your own github account
+2. In the repo directory run
+    ```bash
+    npm start
+    ```
+3. Navigate to http://localhost:3000/ in your browser
+4. Edit the file according to the instructions below
+5. Commit your changes
+6. Email alex@eventhub.com.au with a url to your repo
+7. We will contact you when we have received the email and accessed your repository
+8. If your repository is private you will need to grant access to https://github.com/alexi21
+
+## Instructions
 
 In the `App.js` file you will find a function `getContacts`, this function mocks an API call and returns a Promise of an Array.
 
@@ -47,5 +63,8 @@ Your task is to create a simple table of contacts, with two filters.
 
 - Layout and other styling should be done LAST, and only if you have time.
 
+<br/>
+<br/>
+<br/>
 
 ##### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
