@@ -17,6 +17,7 @@ class App extends Component {
       stateFilter: 'all'
     };
   }
+  //Call filterContacts to return an array of contacts filtered according to the current state of nameFilter
   filterContacts = () => {
     //Reset Filter
     let filteredContacts = this.state.contacts;
@@ -47,6 +48,7 @@ class App extends Component {
 
     return filteredContacts;
   };
+  //Call createStateList to return a list of the states currently in the table, does not include unknown as an option
   createStateList = filteredContacts => {
     let stateList = [];
     filteredContacts.forEach(contact => {
@@ -60,13 +62,12 @@ class App extends Component {
     });
     return stateList;
   };
+  //onSubmit sets the state with whatever is in the name and state inputs
   onSubmit = (nameTerm, stateTerm) => {
-    this.setState({ nameFilter: nameTerm, stateFilter: stateTerm }, () => {
-      this.filterContacts();
-    });
+    this.setState({ nameFilter: nameTerm, stateFilter: stateTerm });
   };
   componentDidMount() {
-    //If component mounts then attempt to retrieve contacts from API
+    //If component mounts then attempt to retrieve contacts from "API"
     getContacts()
       .then(contacts => {
         this.setState({ contacts: contacts });
