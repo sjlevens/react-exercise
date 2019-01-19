@@ -6,11 +6,14 @@ class Toolbar extends React.Component {
     this.state = { nameTerm: '', stateTerm: 'all' };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
   }
   //event.preventDefault not working? still fine functionally
   handleInputChange(event) {
     event.preventDefault();
-    event.stopPropagation();
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -18,6 +21,11 @@ class Toolbar extends React.Component {
     this.setState({ [name]: value }, () => {
       this.submitForm();
     });
+  }
+  handleKeyPress(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    }
   }
   submitForm = () => {
     this.props.onSubmit(this.state.nameTerm, this.state.stateTerm);
