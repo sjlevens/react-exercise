@@ -7,8 +7,10 @@ class Toolbar extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+  //event.preventDefault not working? still fine functionally
   handleInputChange(event) {
     event.preventDefault();
+    event.stopPropagation();
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -23,7 +25,7 @@ class Toolbar extends React.Component {
   renderStateOptions = () =>
     this.props.states.map(state => {
       return (
-        <option key={state} value={state}>
+        <option className="item" key={state} value={state}>
           {state}
         </option>
       );
@@ -31,30 +33,37 @@ class Toolbar extends React.Component {
 
   render() {
     return (
-      <form>
-        <label>
-          Name:
-          <input
-            name="nameTerm"
-            type="text"
-            value={this.state.nameTerm}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          State:
-          <select
-            name="stateTerm"
-            type="select"
-            value={this.state.stateTerm}
-            onChange={this.handleInputChange}
-          >
-            <option value="all">all</option>
-            {this.renderStateOptions()}
-          </select>
-        </label>
-      </form>
+      <div className="ui form">
+        <form>
+          <div className="fields">
+            <label className="field">
+              Name:
+              <input
+                name="nameTerm"
+                type="text"
+                value={this.state.nameTerm}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <br />
+
+            <label className="field">
+              State:
+              <select
+                name="stateTerm"
+                type="select"
+                value={this.state.stateTerm}
+                onChange={this.handleInputChange}
+              >
+                <option className="item" value="all">
+                  all
+                </option>
+                {this.renderStateOptions()}
+              </select>
+            </label>
+          </div>
+        </form>
+      </div>
     );
   }
 }

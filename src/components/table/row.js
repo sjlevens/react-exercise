@@ -2,6 +2,7 @@
 import React from 'react';
 
 class Row extends React.Component {
+  //Check if there is a state attached and return it
   displayState = () => {
     if ('address' in this.props.contact.profile) {
       if ('state' in this.props.contact.profile.address) {
@@ -10,6 +11,7 @@ class Row extends React.Component {
     }
     return 'Unknown';
   };
+  //Check if first and last name, will work if there is onle one or the other
   displayName = () => {
     let fullName = '';
     if ('firstName' in this.props.contact) {

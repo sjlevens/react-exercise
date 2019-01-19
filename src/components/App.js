@@ -79,11 +79,11 @@ class App extends Component {
     const contactsList = this.filterContacts();
     const statesList = this.createStateList(contactsList);
     return (
-      <div>
-        <div className="Toolbar">
-          <Header />
-        </div>
+      <div className="ui container">
+        <Header />
+
         <Toolbar onSubmit={this.onSubmit} states={statesList} />
+
         <Table contacts={contactsList} />
       </div>
     );

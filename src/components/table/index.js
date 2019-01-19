@@ -7,7 +7,7 @@ const Table = props => {
     return <Row contact={contact} key={contact.id} />;
   });
   return (
-    <table>
+    <table className="ui celled table">
       <thead>
         <tr>
           <th>Name</th>
