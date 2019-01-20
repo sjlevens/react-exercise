@@ -77,7 +77,7 @@ class App extends Component {
   }
   render() {
     const contactsList = this.filterContacts();
-    const statesList = this.createStateList(contactsList);
+    const statesList = this.createStateList(this.state.contacts);
     return (
       <div className="ui container">
         <Header />
